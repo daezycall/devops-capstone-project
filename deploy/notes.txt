@@ -1,0 +1,32 @@
+export GITHUB_ACCOUNT=daezycall
+git clone https://github.com/$GITHUB_ACCOUNT/devops-capstone-project.git
+cd devops-capstone-project
+bash ./bin/setup.sh
+
+export GITHUB_TOKEN=...
+
+sudo apt update
+sudo apt install vim
+
+repo=wtecc-CICD_PracticeCode
+git clone https://github.com/daezycall/$repo
+cd $repo
+git config --local user.name "Ondrej Raso"
+git config --local user.email daezycal@gmail.com
+git remote remove origin
+git remote add origin https://github_...@github.com/daezycall/devops-capstone-project
+
+
+git commit -am "added nose arguments"
+git push --set-upstream origin BRANCH_NAME
+
+https://coursera-assessments.s3.amazonaws.com/assessments/1685497003974/ead22ab4-dee7-415a-a46e-c33d66fbf63a/pipelinerun.txt
+
+
+tkn pipeline start cd-pipeline \
+    -p repo-url="https://github.com/$GITHUB_ACCOUNT/devops-capstone-project.git" \
+    -p branch=cd-pipeline \
+    -p build-image=image-registry.openshift-image-registry.svc:5000/$SN_ICR_NAMESPACE/accounts:1 \
+    -w name=pipeline-workspace,claimName=pipelinerun-pvc \
+    -s pipeline \
+    --showlog
